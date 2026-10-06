@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>Application History</title>
+
+</head>
+
+<body>
+
+<h1>BPSU Student Service Management System</h1>
+
+<h2>Application History</h2>
+
+<hr>
+
+<div th:if="${applications == null or #lists.isEmpty(applications)}">
+
+    <p>
+        No application history available.
+    </p>
+
+</div>
+
+<table
+        th:if="${applications != null and !#lists.isEmpty(applications)}"
+        border="1"
+        cellpadding="10"
+        cellspacing="0">
+
+    <thead>
+
+    <tr>
+
+        <th>Application ID</th>
+
+        <th>Student ID</th>
+
+        <th>Email</th>
+
+        <th>Office</th>
+
+        <th>Application Type</th>
+
+        <th>Purpose</th>
+
+        <th>Date</th>
+
+        <th>Time</th>
+
+        <th>Status</th>
+
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="application : ${applications}">
+
+        <td
+                th:text="${application.applicationId}">
+        </td>
+
+        <td
+                th:text="${application.studentId}">
+        </td>
+
+        <td
+                th:text="${application.email}">
+        </td>
+
+        <td
+                th:text="${application.office}">
+        </td>
+
+        <td
+                th:text="${application.applicationType}">
+        </td>
+
+        <td
+                th:text="${application.purpose}">
+        </td>
+
+        <td
+                th:text="${application.date}">
+        </td>
+
+        <td
+                th:text="${application.time}">
+        </td>
+
+        <td
+                th:text="${application.status}">
+        </td>
+
+    </tr>
+
+    </tbody>
+
+</table>
+
+<hr>
+
+<a href="/staff/dashboard">
+    Back to Staff Dashboard
+</a>
+
+<br><br>
+
+<a href="/">
+    Logout
+</a>
+
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>BPSU Staff Dashboard</title>
+
+</head>
+
+<body>
+
+<h1>BPSU Student Service Management System</h1>
+
+<h2>Staff / Admin Dashboard</h2>
+
+<hr>
+
+<h3>Welcome, Staff</h3>
+
+<p>
+    Manage student service applications below.
+</p>
+
+<hr>
+
+<h2>Pending Applications</h2>
+
+<div th:if="${applications == null or #lists.isEmpty(applications)}">
+
+    <p>
+        No applications have been submitted yet.
+    </p>
+
+</div>
+
+<div th:if="${applications != null and !#lists.isEmpty(applications)}">
+
+    <table border="1"
+           cellpadding="10"
+           cellspacing="0">
+
+        <thead>
+
+        <tr>
+            <th>Application ID</th>
+            <th>Student ID</th>
+            <th>Email</th>
+            <th>Office</th>
+            <th>Application Type</th>
+            <th>Purpose</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="app : ${applications}">
+
+            <td th:text="${app.applicationId}">
+                No ID
+            </td>
+
+            <td th:text="${app.studentId}">
+                No Student ID
+            </td>
+
+            <td th:text="${app.email}">
+                No Email
+            </td>
+
+            <td th:text="${app.office}">
+                No Office
+            </td>
+
+            <td th:text="${app.applicationType}">
+                No Application Type
+            </td>
+
+            <td th:text="${app.purpose}">
+                No Purpose
+            </td>
+
+            <td th:text="${app.date}">
+                No Date
+            </td>
+
+            <td th:text="${app.time}">
+                No Time
+            </td>
+
+            <td th:text="${app.status}">
+                No Status
+            </td>
+
+            <td>
+
+                <div th:if="${app.status == 'PENDING'}">
+
+                    <form action="/staff/application/approve"
+                          method="post">
+
+                        <input type="hidden"
+                               name="applicationId"
+                               th:value="${app.applicationId}">
+
+                        <button type="submit">
+                            Approve
+                        </button>
+
+                    </form>
+
+                    <br>
+
+                    <form action="/staff/application/reject"
+                          method="post">
+
+                        <input type="hidden"
+                               name="applicationId"
+                               th:value="${app.applicationId}">
+
+                        <button type="submit">
+                            Reject
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div th:if="${app.status != 'PENDING'}">
+
+                    <strong>
+                        Already Processed
+                    </strong>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<hr>
+
+<h2>Application History</h2>
+
+<a href="/staff/history">
+    View Application History
+</a>
+
+<br><br>
+
+<a href="/">
+    Back to Student Login
+</a>
+
+</body>
+
+</html>

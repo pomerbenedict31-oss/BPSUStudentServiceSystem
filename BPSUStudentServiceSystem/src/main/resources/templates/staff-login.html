@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>BPSU Staff Login</title>
+
+</head>
+
+<body>
+
+<h1>BPSU</h1>
+
+<h2>Bataan Peninsula State University</h2>
+
+<h3>Student Service Management System</h3>
+
+<hr>
+
+<h2>Staff / Admin Login</h2>
+
+<form action="/staff/login" method="post">
+
+    <label for="username">
+        Username:
+    </label>
+
+    <br>
+
+    <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter username"
+            required
+    >
+
+    <br><br>
+
+    <label for="password">
+        Password:
+    </label>
+
+    <br>
+
+    <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            required
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Staff Login
+    </button>
+
+</form>
+
+<br>
+
+<p
+        th:if="${error}"
+        th:text="${error}">
+</p>
+
+<hr>
+
+<a href="/">
+    Back to Student Login
+</a>
+
+</body>
+
+</html>

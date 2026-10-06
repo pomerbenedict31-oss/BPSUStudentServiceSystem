@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+  <title>BPSU Student Dashboard</title>
+
+</head>
+
+<body>
+
+<h1>BPSU Student Service Management System</h1>
+
+<h2>Student Dashboard</h2>
+
+<hr>
+
+<h3>Welcome!</h3>
+
+<p>
+  Student ID:
+  <strong th:text="${studentId}"></strong>
+</p>
+
+<p>
+  BPSU Email:
+  <strong th:text="${email}"></strong>
+</p>
+
+<hr>
+
+<h2>Student Services</h2>
+
+<p>
+  Select an office to submit an application:
+</p>
+
+<h3>1. Registrar</h3>
+<a href="/application?office=Registrar">Apply
+</a>
+
+<h3>2. Cashier</h3>
+<a href="/application?office=Cashier">Apply
+</a>
+
+<h3>3. Guidance Counseling</h3>
+<a href="/application?office=Guidance%20Counseling">Apply
+</a>
+
+<h3>4. Admission</h3>
+<a href="/application?office=Admission">Apply
+</a>
+
+<h3>5. Faculty Consultation</h3>
+<a href="/application?office=Faculty%20Consultation">Apply
+</a>
+
+<h3>6. Student Affairs</h3>
+<a href="/application?office=Student%20Affairs">Apply
+</a>
+
+<h3>7. Shifting Office</h3>
+<a href="/application?office=Shifting%20Office">Apply
+</a>
+
+<hr>
+
+<h2>My Applications</h2>
+
+<a href="/student/history">View My Application History
+</a>
+
+<hr>
+
+<h2>Application Information</h2>
+
+<p>
+  Your submitted applications will appear in
+  <strong>My Application History</strong>.
+</p>
+
+<p>
+  The history includes:
+</p>
+
+<ul>
+  <li>Application ID</li>
+  <li>Student ID</li>
+  <li>Email</li>
+  <li>Office</li>
+  <li>Application Type</li>
+  <li>Purpose</li>
+  <li>Date</li>
+  <li>Time</li>
+  <li>Status</li>
+</ul>
+
+<hr>
+
+<a href="/student/logout">
+  Logout
+</a>
+
+</body>
+
+</html>
